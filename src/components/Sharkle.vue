@@ -11,7 +11,7 @@ import IdleAnimationFrames from './IdleFrames';
 import WaveAnimationFrames from './WaveFrames';
 
 @Component
-export default class HelloWorld extends Vue {
+export default class Sharkle extends Vue {
   private idleAnimation!: FrameAnimation;
   private waveAnimation!: FrameAnimation;
   private sharkleFrame: string = '';

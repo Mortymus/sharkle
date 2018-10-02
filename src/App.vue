@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Sharkle />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import HelloWorld from './components/HelloWorld.vue';
+import Sharkle from './components/Sharkle.vue';
 
 @Component({
   components: {
-    HelloWorld,
+    Sharkle,
   },
 })
 export default class App extends Vue {}
