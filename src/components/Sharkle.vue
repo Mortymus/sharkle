@@ -12,6 +12,8 @@ import IdleAnimationFrames from './IdleFrames';
 import WaveAnimationFrames from './WaveFrames';
 import BubbleFrames from './BubbleFrames';
 
+const WAVE_TIME = 2000;
+
 @Component
 export default class Sharkle extends Vue {
   private idleAnimation!: FrameAnimation;
@@ -38,10 +40,20 @@ export default class Sharkle extends Vue {
   }
 
   public onClick() {
+    if (this.isWaving) {
+      return;
+    }
     this.isWaving = true;
     this.idleAnimation.stop();
     this.waveAnimation.start();
     this.bubbleAnimation.start();
+
+    setTimeout(() => {
+      this.isWaving = false;
+      this.waveAnimation.stop();
+      this.bubbleAnimation.stop();
+      this.idleAnimation.start();
+    }, WAVE_TIME);
   }
 }
 </script>
