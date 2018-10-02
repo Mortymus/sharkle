@@ -11,6 +11,7 @@ import { FrameAnimation } from './FrameAnimation';
 import IdleAnimationFrames from './IdleFrames';
 import WaveAnimationFrames from './WaveFrames';
 import BubbleFrames from './BubbleFrames';
+import SoundFiles from './SoundFiles';
 
 const WAVE_TIME = 2000;
 
@@ -24,17 +25,29 @@ export default class Sharkle extends Vue {
   private isWaving: boolean = false;
 
   public created() {
-    this.idleAnimation = new FrameAnimation(IdleAnimationFrames, 100, (frame: string) => {
-      this.sharkleFrame = frame;
-    });
+    this.idleAnimation = new FrameAnimation(
+      IdleAnimationFrames,
+      100,
+      (frame: string) => {
+        this.sharkleFrame = frame;
+      },
+    );
 
-    this.waveAnimation = new FrameAnimation(WaveAnimationFrames, 100, (frame: string) => {
-      this.sharkleFrame = frame;
-    });
+    this.waveAnimation = new FrameAnimation(
+      WaveAnimationFrames,
+      100,
+      (frame: string) => {
+        this.sharkleFrame = frame;
+      },
+    );
 
-    this.bubbleAnimation = new FrameAnimation(BubbleFrames, 100, (frame: string) => {
-      this.bubbleFrame = frame;
-    });
+    this.bubbleAnimation = new FrameAnimation(
+      BubbleFrames,
+      300,
+      (frame: string) => {
+        this.bubbleFrame = frame;
+      },
+    );
 
     this.idleAnimation.start();
   }
@@ -48,6 +61,12 @@ export default class Sharkle extends Vue {
     this.waveAnimation.start();
     this.bubbleAnimation.start();
 
+    const audio = new Audio(
+      SoundFiles[Math.floor(Math.random() * SoundFiles.length)],
+    );
+
+    audio.play();
+
     setTimeout(() => {
       this.isWaving = false;
       this.waveAnimation.stop();
@@ -58,13 +77,14 @@ export default class Sharkle extends Vue {
 }
 </script>
 
-<style scoped lang="scss">
+<style lang="scss">
 .sharkle-container {
+  position: relative;
   width: 320px;
   .bubble {
     position: absolute;
     left: 0px;
-    top: 0px;
+    top: -40px;
   }
 }
 </style>
