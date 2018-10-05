@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <Sharkle />
+    <div class="container">
+      <Sharkle />
+    </div>
   </div>
 </template>
 
@@ -18,11 +20,12 @@ export default class App extends Vue {}
 
 <style lang="scss">
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  max-width: 300px;
+  margin: auto;
+}
+
+.container {
+  margin: auto;
+  max-width: 250px;
 }
 </style>

@@ -77,14 +77,19 @@ export default class Sharkle extends Vue {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+$containerDimension: 250px;
 .sharkle-container {
   position: relative;
-  width: 320px;
+  width: $containerDimension;
+  height: $containerDimension; 
+  .sharkle {
+    position: absolute;
+    left: $containerDimension - 160px;
+    top: $containerDimension - 206px;
+  }
   .bubble {
     position: absolute;
-    left: 0px;
-    top: -40px;
   }
 }
 </style>
