@@ -1,21 +1,3 @@
-# sharkle
+# Hoy!
 
-## Project setup
-```
-yarn install
-```
-
-### Compiles and hot-reloads for development
-```
-yarn run serve
-```
-
-### Compiles and minifies for production
-```
-yarn run build
-```
-
-### Lints and fixes files
-```
-yarn run lint
-```
+A Vue implementation of Sharkle. Just click on him to be satisfied.
